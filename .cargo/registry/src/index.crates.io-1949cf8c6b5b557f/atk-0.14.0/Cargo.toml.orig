@@ -1,0 +1,37 @@
+[package]
+documentation = "https://gtk-rs.org/gtk3-rs/stable/latest/docs/atk/"
+categories = ["api-bindings", "gui"]
+license = "MIT"
+description = "Rust bindings for the ATK library"
+name = "atk"
+homepage = "https://gtk-rs.org/"
+authors = ["The gtk-rs Project Developers"]
+readme = "README.md"
+version = "0.14.0"
+keywords = ["atk", "gtk-rs", "gnome", "accessibility"]
+repository = "https://github.com/gtk-rs/gtk3-rs"
+exclude = [
+    "gir-files/*",
+]
+edition = "2018"
+
+[lib]
+name = "atk"
+
+[features]
+dox = ["ffi/dox"]
+v2_30 = ["ffi/v2_30"]
+v2_32 = ["v2_30", "ffi/v2_32"]
+v2_34 = ["v2_32", "ffi/v2_34"]
+
+[package.metadata.docs.rs]
+features = ["dox"]
+
+[dependencies]
+libc = "0.2"
+bitflags = "1.0"
+ffi = {package = "atk-sys", version = "0.14.0"}
+glib = "0.14.0"
+
+[dev-dependencies]
+gir-format-check = "^0.1"
